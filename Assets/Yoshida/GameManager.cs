@@ -7,6 +7,11 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [SerializeField, Header("クリアに必要な勾玉の数")] int _clearMagatama = 3;
+    [SerializeField, Header("取得してない勾玉の画像")] GameObject[] _magatamaImage;
+    [SerializeField, Header("勾玉入手後の画像")] GameObject _magatamaGetImage;
+    [SerializeField, Header("勾玉消滅後の画像")] GameObject _magatamaDropImage;
+
+    int _magatamaIndexCount = 0;
     float _nowMagatamaCount;
     public float NowMagatamaCount => _nowMagatamaCount;
     int _hitCount;
@@ -55,11 +60,15 @@ public class GameManager : MonoBehaviour
     /// <summary>勾玉の所持数を加算</summary>
     public void AddMagatama()
     {
+        _magatamaImage[_magatamaIndexCount] = _magatamaGetImage;
+        _magatamaIndexCount++;
         _nowMagatamaCount++;
     }
     /// <summary>勾玉の所持数が1つ以上の時に勾玉を落とす</summary>
     public void DropMagatama()
     {
+        _magatamaImage[_magatamaIndexCount] = _magatamaDropImage;
+        _magatamaIndexCount--;
         _hitCount++;
         if (_nowMagatamaCount > 0)
         {
@@ -69,7 +78,7 @@ public class GameManager : MonoBehaviour
     /// <summary>ゴール時のメソッド</summary>
     public void Goal()
     {
-        if (NowMagatamaCount < 3)
+        if (NowMagatamaCount < _clearMagatama)
         {
             GameOver();
         }

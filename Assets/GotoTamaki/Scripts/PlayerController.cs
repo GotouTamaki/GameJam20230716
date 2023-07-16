@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour
     {
         if (_startTimar < 0) 
         {
+            Debug.Log("操作可");
             // 前進する
             _rb.velocity = Vector3.forward * _moveForwardSpeed;
             // 横移動
@@ -46,12 +47,14 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.tag == "Block")
         {
             //勾玉を落とす処理
+            GameManager.Instance.DropMagatama();
             //animation
             //audio
         }
         else if (other.gameObject.tag == "Goal")
         {
             //クリア判定
+            GameManager.Instance.Goal();
         }
     }
 }
