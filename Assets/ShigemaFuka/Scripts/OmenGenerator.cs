@@ -7,11 +7,6 @@ using UnityEngine;
 /// </summary>
 public class OmenGenerator : BaseGimmickGenerator
 {
-    
 
-    void Start()
-    {
-
-    }
 
 }
