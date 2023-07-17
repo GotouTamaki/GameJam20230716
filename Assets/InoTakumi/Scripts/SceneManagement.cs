@@ -12,7 +12,6 @@ public class SceneManagement : MonoBehaviour
     bool isClear = false, isDead = false;
 
     float mtCount = 0;
-    float timeLimit = 180;
 
     private void Awake()
     {
@@ -23,22 +22,19 @@ public class SceneManagement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            SceneManager.LoadScene("PlayScene");
+            SceneManager.LoadScene(1);
         }        
     }
 
 
 
-    private void FixedUpdate()
-    {
-        timeLimit -= 0.1f;
-    }
+    
     private void Update()
     {
         MoveToPlayScene();
 
 
-        if (mtCount >= 10 && timeLimit > 0)
+        if (mtCount >= 10)
         {
             isClear = true;
         }
