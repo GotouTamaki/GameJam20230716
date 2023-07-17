@@ -7,10 +7,13 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField, Header("~~クリアに必要な勾玉の数~~")] int _clearMagatama = 3;
+    [SerializeField, Header("クリアに必要な勾玉の数")] int _clearMagatama = 3;
     [SerializeField, Header("取得してない勾玉の画像")] Image[] _magatamaImage;
     [SerializeField, Header("勾玉入手後の画像")] Image _magatamaGetImage;
     [SerializeField, Header("勾玉消滅後の画像")] Image _magatamaDropImage;
+
+    [System.NonSerialized] public bool _isOmenSpawnnig = false;
+    [System.NonSerialized] public bool _isChouchinSpawnning = false;
 
     /// <summary>勾玉の取得UIを格納している配列の要素番号</summary>
     int _magatamaIndexCount = 0;
@@ -36,17 +39,6 @@ public class GameManager : MonoBehaviour
             Destroy(this);
         }
     }
-
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
-
     public void GameOver()
     {
         _isGameOver = true;
@@ -56,7 +48,7 @@ public class GameManager : MonoBehaviour
     public void GameClear()
     {
         _isGameClear = true;
-        PlayerPrefs.SetInt("HitCount", HitCount);
+        PlayerPrefs.SetInt("HitCount", _hitCount);
         SceneManager.LoadScene("GameClear");
     }
 
