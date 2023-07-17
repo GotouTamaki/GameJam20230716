@@ -8,10 +8,8 @@ public class SceneManagement : MonoBehaviour
     public GameObject DeadCanvas;
 
 
-
     bool isClear = false, isDead = false;
 
-    float mtCount = 0;
 
     private void Awake()
     {
@@ -34,7 +32,8 @@ public class SceneManagement : MonoBehaviour
         MoveToPlayScene();
 
 
-        if (mtCount >= 10)
+
+        if (GameManager.Instance.NowMagatamaCount >= 5)
         {
             isClear = true;
         }

@@ -876,7 +876,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 58c27ca565285bf47ba25941302d3664, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 832396413afa83540badf86949b5fa83, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -2618,6 +2618,7 @@ MonoBehaviour:
   _min: 1
   _max: 5
   _lifeTime: 5
+  _timeCount: 0
   canUseGimmick: 0
   _audioSource: {fileID: 0}
 --- !u!114 &1606979731
@@ -3307,61 +3308,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1658476397526136779, guid: 2dfd0413f1a0afd4d867dad3e0836c6d,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.61
-      objectReference: {fileID: 0}
-    - target: {fileID: 1658476397526136779, guid: 2dfd0413f1a0afd4d867dad3e0836c6d,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1658476397526136779, guid: 2dfd0413f1a0afd4d867dad3e0836c6d,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.9997618
-      objectReference: {fileID: 0}
-    - target: {fileID: 1658476397526136779, guid: 2dfd0413f1a0afd4d867dad3e0836c6d,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.021824393
-      objectReference: {fileID: 0}
-    - target: {fileID: 1658476397526136779, guid: 2dfd0413f1a0afd4d867dad3e0836c6d,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 2.501
-      objectReference: {fileID: 0}
-    - target: {fileID: 1658476398407657722, guid: 2dfd0413f1a0afd4d867dad3e0836c6d,
-        type: 3}
-      propertyPath: _interval
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1658476398407657722, guid: 2dfd0413f1a0afd4d867dad3e0836c6d,
-        type: 3}
-      propertyPath: _maxInterval
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1658476398407657722, guid: 2dfd0413f1a0afd4d867dad3e0836c6d,
-        type: 3}
-      propertyPath: _minInterval
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1658476398951653944, guid: 2dfd0413f1a0afd4d867dad3e0836c6d,
-        type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1658476398951653945, guid: 2dfd0413f1a0afd4d867dad3e0836c6d,
-        type: 3}
-      propertyPath: _moveForwardSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1658476398951653945, guid: 2dfd0413f1a0afd4d867dad3e0836c6d,
-        type: 3}
-      propertyPath: _moveHorizontalSpeed
-      value: 120
-      objectReference: {fileID: 0}
     - target: {fileID: 1658476398951653946, guid: 2dfd0413f1a0afd4d867dad3e0836c6d,
         type: 3}
       propertyPath: m_RootOrder
@@ -3420,11 +3366,6 @@ PrefabInstance:
     - target: {fileID: 1658476398951653950, guid: 2dfd0413f1a0afd4d867dad3e0836c6d,
         type: 3}
       propertyPath: m_Name
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 1658476398951653950, guid: 2dfd0413f1a0afd4d867dad3e0836c6d,
-        type: 3}
-      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
