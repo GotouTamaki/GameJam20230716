@@ -13,6 +13,7 @@ public class OmenActive : MonoBehaviour
     [SerializeField, Tooltip("アニメーションの生存時間")] float _lifeTime = 5f;
     float _animTime;
     [SerializeField, Tooltip("再使用防止")] bool canUseGimmick;
+    [SerializeField] AudioSource _audioSource; 
 
 
     private void Start()
@@ -34,6 +35,7 @@ public class OmenActive : MonoBehaviour
             if (_time > _interval && GameManager.Instance._isOmenSpawnnig == false)
             {
                 _omen.SetActive(true);
+                _audioSource.Play(); 
                 GameManager.Instance._isOmenSpawnnig = true;
             }
             if (GameManager.Instance._isOmenSpawnnig == true)

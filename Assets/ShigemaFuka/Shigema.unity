@@ -488,11 +488,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _startTime: 5
   _omen: {fileID: 2115454177}
+  _time: 0
   _interval: 2
   _min: 0
   _max: 2
   _lifeTime: 1
   canUseGimmick: 0
+  _audioSource: {fileID: 2115454185}
 --- !u!4 &1671614567
 Transform:
   m_ObjectHideFlags: 0
@@ -696,7 +698,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
