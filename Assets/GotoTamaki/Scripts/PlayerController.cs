@@ -28,13 +28,17 @@ public class PlayerController : MonoBehaviour
 
         // ‚’¼•ûŒü‚Ì“ü—Í‚ðŽæ“¾‚·‚é
         _h = Input.GetAxisRaw("Horizontal");
+        if (_h >= 0) 
+        {
+            Debug.Log(_h);
+        }
     }
 
     private void FixedUpdate()
     {
         if (_startTimar < 0) 
         {
-            Debug.Log("‘€ì‰Â");
+            //Debug.Log("‘€ì‰Â");
             // ‘Oi‚·‚é
             _rb.velocity = Vector3.forward * _moveForwardSpeed;
             // ‰¡ˆÚ“®
