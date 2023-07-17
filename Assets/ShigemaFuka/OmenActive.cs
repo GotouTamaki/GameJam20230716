@@ -12,6 +12,7 @@ public class OmenActive : MonoBehaviour
     [SerializeField, Tooltip("消えてからの再生成までの最大値")] int _max;
     [SerializeField, Tooltip("アニメーションの生存時間")] float _lifeTime = 5f;
     float _animTime;
+    [SerializeField] float _timeCount = 0;
     [SerializeField, Tooltip("再使用防止")] bool canUseGimmick;
     [SerializeField] AudioSource _audioSource; 
 
@@ -23,6 +24,7 @@ public class OmenActive : MonoBehaviour
 
     void Update()
     {
+        _timeCount += Time.deltaTime;
         _time += Time.deltaTime;
 
         if (_time > _startTime && !canUseGimmick)
@@ -34,7 +36,7 @@ public class OmenActive : MonoBehaviour
         {
             if (_time > _interval && GameManager.Instance._isOmenSpawnnig == false)
             {
-                _omen.SetActive(true);
+                _omen.SetActive(true); 
                 _audioSource.Play(); 
                 GameManager.Instance._isOmenSpawnnig = true;
             }
