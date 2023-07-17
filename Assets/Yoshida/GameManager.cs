@@ -15,9 +15,6 @@ public class GameManager : MonoBehaviour
     [System.NonSerialized] public bool _isOmenSpawnnig = false;
     [System.NonSerialized] public bool _isChouchinSpawnning = false;
 
-    bool _isGameStart = false;
-    public bool IsGameStart => _isGameStart;
-
     /// <summary>Œù‹Ê‚Ìæ“¾UI‚ğŠi”[‚µ‚Ä‚¢‚é”z—ñ‚Ì—v‘f”Ô†</summary>
     int _magatamaIndexCount = 0;
     int _magatamaDropIndexCount = 0;
@@ -27,10 +24,10 @@ public class GameManager : MonoBehaviour
     public int HitCount => _hitCount;
 
     bool _isGameOver = false;
-    public bool IsGameOver => _isGameOver;
     bool _isGameClear = false;
 
     public static GameManager Instance;
+
     private void Awake()
     {
         if (Instance == null)
@@ -40,16 +37,6 @@ public class GameManager : MonoBehaviour
         else
         {
             Destroy(this);
-        }
-        Time.timeScale = 0;
-    }
-
-    private void Update()
-    {
-        if (Input.GetKey(KeyCode.Space))
-        {
-            Time.timeScale = 1;
-            _isGameStart = true;
         }
     }
     public void GameOver()

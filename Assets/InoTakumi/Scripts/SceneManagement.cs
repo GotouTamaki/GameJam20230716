@@ -8,8 +8,11 @@ public class SceneManagement : MonoBehaviour
     public GameObject DeadCanvas;
 
 
+
     bool isClear = false, isDead = false;
 
+    float mtCount = 0;
+    float timeLimit = 180;
 
     private void Awake()
     {
@@ -20,20 +23,22 @@ public class SceneManagement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene("PlayScene");
         }        
     }
 
 
 
-    
+    private void FixedUpdate()
+    {
+        timeLimit -= 0.1f;
+    }
     private void Update()
     {
         MoveToPlayScene();
 
 
-
-        if (GameManager.Instance.NowMagatamaCount >= 5)
+        if (mtCount >= 10 && timeLimit > 0)
         {
             isClear = true;
         }
