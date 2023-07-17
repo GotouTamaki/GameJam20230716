@@ -6,12 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/InoTakumi/Scene/TitleScene.unity
+    guid: b3b40a3fb1e684c40a21f5e8ffcb1c9c
+  - enabled: 1
+    path: Assets/TakeuchiRyoga/TamakiScene 1.unity
+    guid: 88d4da3d30eab754099cabaff6e09ade
   - enabled: 1
     path: Assets/InoTakumi/Scene/PlayScene.unity
     guid: 38f8223d2403a7042ab886f0c183742e
   - enabled: 1
-    path: Assets/InoTakumi/Scene/TitleScene.unity
-    guid: b3b40a3fb1e684c40a21f5e8ffcb1c9c
+    path: Assets/Scenes/SampleScene.unity
+    guid: 99c9720ab356a0642a771bea13969a05
   m_configObjects: {}

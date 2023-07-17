@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class Magatama : MonoBehaviour
 {
+    [SerializeField]AudioSource magatamaSE;
 
+    private void Start()
+    {
+        magatamaSE = GetComponent<AudioSource>();
+    }
     // Update is called once per frame
     void Update()
     {
@@ -15,9 +20,12 @@ public class Magatama : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
+            AudioSource.PlayClipAtPoint(magatamaSE.clip, transform.position);
+
             Destroy(gameObject);
         }
         GameManager.Instance.AddMagatama();
-       
+     
+        
     }
 }
