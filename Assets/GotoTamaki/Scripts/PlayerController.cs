@@ -15,7 +15,8 @@ public class PlayerController : MonoBehaviour
     /// <summary>水平方向の入力値</summary>
     float _h = 0;
     /// <summary>スタート前のカウントダウン用タイマー</summary>
-    float _startTimer = 3f;
+    float _startCount = 3f;
+    /// <summary>足音用のフラグ</summary>
     bool _footstepsPlay = false;
 
     // Start is called before the first frame update
@@ -36,17 +37,21 @@ public class PlayerController : MonoBehaviour
             Debug.Log(_h);
         }
 
-        if (GameManager.Instance.IsGameStart == true && _footstepsPlay == false)
+        if (GameManager.Instance.IsGameStart == true)
         {
-            _audioSource.Play();
-            _footstepsPlay = true;
+            _startCount -= Time.deltaTime;
         }
 
+        if (GameManager.Instance.IsGameStart == true && _footstepsPlay == false && _startCount < 0)
+        {
+            _audioSource.Play();
+            _footstepsPlay = true;         
+        }
     }
 
     private void FixedUpdate()
     {
-        if (GameManager.Instance.IsGameStart == true) 
+        if (_startCount < 0 && GameManager.Instance.IsGameStart == true) 
         {
             //Debug.Log("操作可");
             // 前進する
