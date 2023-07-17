@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneManagement : MonoBehaviour
 {
-    
+    bool isClear = false, isDead = false;   
     
     void MoveToPlayScene()
     {
@@ -15,46 +15,38 @@ public class SceneManagement : MonoBehaviour
     }
 
 
-    void MoveToTitleScene()
+
+    void ClearFlagOn()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            SceneManager.LoadScene("TitleScene");
-        }
+       if(Input.GetKeyDown(KeyCode.Alpha1)) isClear = true;
     }
 
 
-    bool ClearFlag()
+    void DeadFlagOn()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            return true;
-        }
-        return false;
-    }
-
-
-    bool DeadFlag()
-    {
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            return true;
-        }
-        return false;
+        if (Input.GetKeyDown(KeyCode.Alpha2)) isDead = true;
     }
 
     private void Update()
     {
         MoveToPlayScene();
+        ClearFlagOn();
+        DeadFlagOn();
 
-        if(SceneManager.GetActiveScene().name == "PlayScene")
+        if (SceneManager.GetActiveScene().name == "PlayScene")
         {
             // クリア後、タイトルシーンに遷移
-            if ( ClearFlag())   SceneManager.LoadScene("TitleScene");
+            if (isClear)
+            {
+                SceneManager.LoadScene("TitleScene");
+                isClear = false;
+            }
             // 死亡後、プレイシーンをリロード
-            if ( DeadFlag()) SceneManager.LoadScene("PlayScene");
-        }
-
-        
+            if (isDead)
+            {
+                SceneManager.LoadScene("PlayScene");
+                isDead = false;
+            }
+        }        
     }
 }
