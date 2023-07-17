@@ -32,10 +32,10 @@ public class PlayerController : MonoBehaviour
     {
         // ‚’¼•ûŒü‚Ì“ü—Í‚ğæ“¾‚·‚é
         _h = Input.GetAxisRaw("Horizontal");
-        if (_h >= 0) 
-        {
-            Debug.Log(_h);
-        }
+        //if (_h >= 0) 
+        //{
+        //    Debug.Log(_h);
+        //}
 
         if (GameManager.Instance.IsGameStart == true)
         {
@@ -67,8 +67,6 @@ public class PlayerController : MonoBehaviour
         {
             //Œù‹Ê‚ğ—‚Æ‚·ˆ—
             GameManager.Instance.DropMagatama();
-            //animation
-            //audio
         }
         else if (other.gameObject.tag == "Goal")
         {

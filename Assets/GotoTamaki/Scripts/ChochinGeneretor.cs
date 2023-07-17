@@ -12,6 +12,7 @@ public class ChochinGeneretor : MonoBehaviour
     [SerializeField, Header("最大インターバル"), Range(5, 8)] float _maxInterval = 1f;
     [SerializeField, Header("インターバル"), Range(5, 8)] float _interval = 1f;   
 
+    // 各種初期化
     GameManager gameManager = null;
     AudioSource _audioSource = null;
 

@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class CountDpwnController : MonoBehaviour
 {
+    // 各種初期化
     AudioSource _audioSource = null;
     Animator _animator = null;
-    /// <summary>足音用のフラグ</summary>
+    /// <summary>アニメーション用のフラグ</summary>
     bool _animPlay = false;
 
     // Start is called before the first frame update
@@ -27,6 +28,7 @@ public class CountDpwnController : MonoBehaviour
         }
     }
 
+    // アニメーションの効果音用メソッド
     public void CountAudio()
     {
         _audioSource.Play();

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LightController : MonoBehaviour
 {
+    // 各種初期化
     Animator _animator = null;
     GameManager gameManager = null;
 
@@ -17,6 +18,7 @@ public class LightController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // ゲームスタート時にアニメーションスタート
         if (GameManager.Instance.IsGameStart == true) 
         {
             _animator.Play("Light", 0);

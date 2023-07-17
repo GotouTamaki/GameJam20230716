@@ -9,17 +9,18 @@ public class ChochinController : MonoBehaviour
     [SerializeField, Header("当たった音ボリューム")] float __hitvolume = 1.0f;
     [SerializeField, Header("ボイスのボリューム")] float __chochinVolume = 1.0f;
 
+    // 各種初期化
     AudioSource _audioSource = null;
 
     // Start is called before the first frame update
     void Start()
     {
-        //anim
         _audioSource = GetComponent<AudioSource>();
         // 5秒後に呼び出す
         Invoke(nameof(ChochinDestroy), 5f);
     }
 
+    // 提灯の制御
     void ChochinDestroy()
     {
         GameManager.Instance._isChouchinSpawnning = false;
