@@ -9,40 +9,50 @@ public class PlayerController : MonoBehaviour
     [SerializeField, Header("横方向のスピード")] float _moveHorizontalSpeed = 1f;
 
     // 各種初期化
+    GameManager gameManager = null;
     Rigidbody _rb = null;
+    AudioSource _audioSource = null;
     /// <summary>水平方向の入力値</summary>
     float _h = 0;
     /// <summary>スタート前のカウントダウン用タイマー</summary>
     float _startTimer = 3f;
+    bool _footstepsPlay = false;
 
     // Start is called before the first frame update
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
+        gameManager = GetComponent<GameManager>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        _startTimer -= Time.deltaTime;
-
         // 垂直方向の入力を取得する
         _h = Input.GetAxisRaw("Horizontal");
         if (_h >= 0) 
         {
             Debug.Log(_h);
         }
+
+        if (GameManager.Instance.IsGameStart == true && _footstepsPlay == false)
+        {
+            _audioSource.Play();
+            _footstepsPlay = true;
+        }
+
     }
 
     private void FixedUpdate()
     {
-        if (_startTimer < 0) 
+        if (GameManager.Instance.IsGameStart == true) 
         {
             //Debug.Log("操作可");
             // 前進する
             _rb.velocity = Vector3.forward * _moveForwardSpeed;
             // 横移動
-            _rb.AddForce(Vector3.right * _h * _moveHorizontalSpeed, ForceMode.Force);
+            _rb.AddForce(Vector3.right * _h * _moveHorizontalSpeed, ForceMode.Force);           
         } 
     }
 
