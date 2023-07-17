@@ -3,15 +3,18 @@ using System.Collections.Generic;
 using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField, Header("クリアに必要な勾玉の数")] int _clearMagatama = 3;
-    [SerializeField, Header("取得してない勾玉の画像")] GameObject[] _magatamaImage;
-    [SerializeField, Header("勾玉入手後の画像")] GameObject _magatamaGetImage;
-    [SerializeField, Header("勾玉消滅後の画像")] GameObject _magatamaDropImage;
+    [SerializeField, Header("~~クリアに必要な勾玉の数~~")] int _clearMagatama = 3;
+    [SerializeField, Header("取得してない勾玉の画像")] Image[] _magatamaImage;
+    [SerializeField, Header("勾玉入手後の画像")] Image _magatamaGetImage;
+    [SerializeField, Header("勾玉消滅後の画像")] Image _magatamaDropImage;
 
+    /// <summary>勾玉の取得UIを格納している配列の要素番号</summary>
     int _magatamaIndexCount = 0;
+    int _magatamaDropIndexCount = 0;
     float _nowMagatamaCount;
     public float NowMagatamaCount => _nowMagatamaCount;
     int _hitCount;
@@ -60,25 +63,30 @@ public class GameManager : MonoBehaviour
     /// <summary>勾玉の所持数を加算</summary>
     public void AddMagatama()
     {
-        _magatamaImage[_magatamaIndexCount] = _magatamaGetImage;
-        _magatamaIndexCount++;
+        if (_magatamaIndexCount < _magatamaImage.Length)
+        {
+            _magatamaImage[_magatamaIndexCount].sprite = _magatamaGetImage.sprite;
+        }
         _nowMagatamaCount++;
+        _magatamaIndexCount++;
+        print(_nowMagatamaCount);
     }
     /// <summary>勾玉の所持数が1つ以上の時に勾玉を落とす</summary>
     public void DropMagatama()
     {
-        _magatamaImage[_magatamaIndexCount] = _magatamaDropImage;
-        _magatamaIndexCount--;
         _hitCount++;
         if (_nowMagatamaCount > 0)
         {
             _nowMagatamaCount--;
+            _magatamaIndexCount--;
+            _magatamaImage[_magatamaIndexCount].sprite = _magatamaDropImage.sprite;
         }
+        print(_nowMagatamaCount);
     }
     /// <summary>ゴール時のメソッド</summary>
     public void Goal()
     {
-        if (NowMagatamaCount < _clearMagatama)
+        if (_nowMagatamaCount < _clearMagatama)
         {
             GameOver();
         }
