@@ -5,24 +5,16 @@ using UnityEngine;
 public class anim_swich : MonoBehaviour
 {
 
-    private Animator yatai_anim;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        yatai_anim = GetComponent<Animator>();
-    }
-
+    [SerializeField]Animator yatai_anim;
+    [SerializeField] string anim_name;
+    
     //  プレイヤーがスイッチに接触した場合、屋台のアニメーションを実行
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "")
+        if (other.gameObject.tag == "Player")
         {
-            yatai_anim.SetBool("Bool", true);
+            yatai_anim.Play(anim_name);
         }
-        else
-        {
-            yatai_anim.SetBool("Bool", false);
-        }
+
     }
 }
