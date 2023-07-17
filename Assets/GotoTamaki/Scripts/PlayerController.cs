@@ -11,9 +11,9 @@ public class PlayerController : MonoBehaviour
     // 各種初期化
     Rigidbody _rb = null;
     /// <summary>水平方向の入力値</summary>
-    float _h;
+    float _h = 0;
     /// <summary>スタート前のカウントダウン用タイマー</summary>
-    float _startTimar = 3f;
+    float _startTimer = 3f;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _startTimar -= Time.deltaTime;
+        _startTimer -= Time.deltaTime;
 
         // 垂直方向の入力を取得する
         _h = Input.GetAxisRaw("Horizontal");
@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_startTimar < 0) 
+        if (_startTimer < 0) 
         {
             //Debug.Log("操作可");
             // 前進する

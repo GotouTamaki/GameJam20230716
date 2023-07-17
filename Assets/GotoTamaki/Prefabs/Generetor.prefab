@@ -46,4 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _tyotin: {fileID: 3858280844060891388, guid: b4b4006314105224c9ebdad953703b3b, type: 3}
   _startInterval: 5
-  _interval: 10
+  _minInterval: 5
+  _maxInterval: 8
+  _interval: 6
