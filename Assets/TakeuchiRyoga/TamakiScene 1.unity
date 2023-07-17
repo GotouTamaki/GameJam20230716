@@ -2613,7 +2613,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _startTime: 30
   _omen: {fileID: 1702918506}
-  _time: 0
   _interval: 2
   _min: 1
   _max: 5
