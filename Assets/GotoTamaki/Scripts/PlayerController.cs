@@ -10,9 +10,9 @@ public class PlayerController : MonoBehaviour
 
     // 各種初期化
     Rigidbody _rb = null;
-    // 水平方向の入力値
+    /// <summary>水平方向の入力値</summary>
     float _h;
-    // スタート前のカウントダウン用タイマー
+    /// <summary>スタート前のカウントダウン用タイマー</summary>
     float _startTimar = 3f;
 
     // Start is called before the first frame update
